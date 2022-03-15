@@ -26,7 +26,11 @@ extractedLinks.map(({ container, link, aTag }) => {
 
   aTag.addEventListener('click', (evt) => evt.preventDefault());
 
-  // This stuff is probably taking it too far
+  // This is probably too much styling, but we could highlight the
+  // elements and change the links colours here too.
+  //
+  // We can choose only to change the colour of the active link, similar 
+  // to the normal browser behavior this way too - quite nice.  
   container.addEventListener('mouseenter', (evt) => {
     container.style.borderColor = 'orange';
     aTag.style.color = 'orange';
