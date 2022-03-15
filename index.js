@@ -6,10 +6,21 @@ const thingsToLinkify = Array.from(
 
 const extractedLinks = thingsToLinkify.map((container) => {
   const aTag = container.querySelector('a[data-a11y-target]');
+  const otherATags = Array.from(container.querySelectorAll('a')).filter(
+    (x) => !x.hasAttribute('data-a11y-target')
+  );
+
+  otherATags.forEach((x) => {
+    x.addEventListener('click', (evt) => {
+      evt.stopPropagation();
+    });
+  });
+
   return {
     container,
     link: aTag.href,
     aTag,
+    otherATags,
   };
 });
 
@@ -27,7 +38,7 @@ extractedLinks.map(({ container, link, aTag }) => {
   aTag.addEventListener('click', (evt) => evt.preventDefault());
 
   // This is probably too much styling, but we could highlight the
-  // elements and change the links colours here too.
+  // elements and change the lii9-----9mnks colours here too.
   //
   // We can choose only to change the colour of the active link, similar
   // to the normal browser behavior this way too - quite nice.
