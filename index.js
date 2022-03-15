@@ -18,7 +18,7 @@ const extractedLinks = thingsToLinkify.map((container) => {
   };
 });
 
-extractedLinks.map(({ container, link, aTag, otherATags }) => {
+extractedLinks.forEach(({ container, link, aTag, otherATags }) => {
   const prevBorderColor = container.style.borderColor;
   const prevLinkColor = container.style.borderColor;
 
