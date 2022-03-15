@@ -25,7 +25,6 @@ extractedLinks.forEach(({ container, link, aTag, otherATags }) => {
   container.style.cursor = 'pointer';
 
   container.addEventListener('click', (evt) => {
-    console.log(`Navigating to: ${link}`);
     window.open(link, '_blank');
   });
 
