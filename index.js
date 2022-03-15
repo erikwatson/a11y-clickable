@@ -10,12 +10,6 @@ const extractedLinks = thingsToLinkify.map((container) => {
     (x) => !x.hasAttribute('data-a11y-target')
   );
 
-  otherATags.forEach((x) => {
-    x.addEventListener('click', (evt) => {
-      evt.stopPropagation();
-    });
-  });
-
   return {
     container,
     link: aTag.href,
@@ -24,7 +18,7 @@ const extractedLinks = thingsToLinkify.map((container) => {
   };
 });
 
-extractedLinks.map(({ container, link, aTag }) => {
+extractedLinks.map(({ container, link, aTag, otherATags }) => {
   const prevBorderColor = container.style.borderColor;
   const prevLinkColor = container.style.borderColor;
 
@@ -36,6 +30,12 @@ extractedLinks.map(({ container, link, aTag }) => {
   });
 
   aTag.addEventListener('click', (evt) => evt.preventDefault());
+
+  otherATags.forEach((x) => {
+    x.addEventListener('click', (evt) => {
+      evt.stopPropagation();
+    });
+  });
 
   // This is probably too much styling, but we could highlight the
   // elements and change the lii9-----9mnks colours here too.
