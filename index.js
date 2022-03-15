@@ -38,7 +38,7 @@ extractedLinks.map(({ container, link, aTag, otherATags }) => {
   });
 
   // This is probably too much styling, but we could highlight the
-  // elements and change the lii9-----9mnks colours here too.
+  // elements and change the link colours here too.
   //
   // We can choose only to change the colour of the active link, similar
   // to the normal browser behavior this way too - quite nice.
