@@ -4,6 +4,13 @@ body {
   color: #3c3c3c;
 }
 
+.wrapper {
+  display: flex;
+  justify-content: center;
+  max-width: calc((240px * 3) + 100px);
+  margin: auto;
+}
+
 ul {
   list-style: none;
 }
