@@ -1,12 +1,11 @@
 import './style.css';
 
 const thingsToLinkify = Array.from(
-  // document.getElementsByClassName('a11y-clickable')
   document.querySelectorAll('[data-a11y-clickable]')
 );
 
 const extractedLinks = thingsToLinkify.map((container) => {
-  const aTag = container.getElementsByTagName('a')[0];
+  const aTag = container.querySelector('a[data-a11y-target]');
   return {
     container,
     link: aTag.href,
