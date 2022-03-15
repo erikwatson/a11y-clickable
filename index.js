@@ -1,7 +1,8 @@
 import './style.css';
 
 const thingsToLinkify = Array.from(
-  document.getElementsByClassName('a11y-clickable')
+  // document.getElementsByClassName('a11y-clickable')
+  document.querySelectorAll('[data-a11y-clickable]')
 );
 
 const extractedLinks = thingsToLinkify.map((container) => {
@@ -29,8 +30,8 @@ extractedLinks.map(({ container, link, aTag }) => {
   // This is probably too much styling, but we could highlight the
   // elements and change the links colours here too.
   //
-  // We can choose only to change the colour of the active link, similar 
-  // to the normal browser behavior this way too - quite nice.  
+  // We can choose only to change the colour of the active link, similar
+  // to the normal browser behavior this way too - quite nice.
   container.addEventListener('mouseenter', (evt) => {
     container.style.borderColor = 'orange';
     aTag.style.color = 'orange';
