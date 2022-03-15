@@ -1,0 +1,50 @@
+body {
+  background-color: #e3e3e3;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #3c3c3c;
+}
+
+ul {
+  list-style: none;
+}
+
+.card-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  max-width: 240px;
+  padding: 10px;
+  background-color: #ffffff;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #c9c2c2;
+  border-radius: 8px;
+}
+
+.card h2 {
+  font-size: 1.5rem;
+}
+
+.card p {
+  font-size: 1rem;
+}
+
+a {
+  color: blue;
+}
+
+a:visited {
+  color: purple;
+}
+
+a:hover {
+  color: red;
+}
