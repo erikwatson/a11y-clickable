@@ -22,6 +22,16 @@ extractedLinks.forEach(({ container, link, aTag, otherATags }) => {
   const prevBorderColor = container.style.borderColor;
   const prevLinkColor = container.style.borderColor;
 
+  const removeHighlights = () => {
+    container.style.borderColor = prevBorderColor;
+    aTag.style.color = prevLinkColor;
+  };
+
+  const applyHighlights = () => {
+    container.style.borderColor = 'orange';
+    aTag.style.color = 'orange';
+  };
+
   container.style.cursor = 'pointer';
 
   container.addEventListener('click', (evt) => {
@@ -34,20 +44,21 @@ extractedLinks.forEach(({ container, link, aTag, otherATags }) => {
     x.addEventListener('click', (evt) => {
       evt.stopPropagation();
     });
+
+    x.addEventListener('mouseenter', (evt) => {
+      removeHighlights();
+    });
+
+    x.addEventListener('mouseleave', (evt) => {
+      applyHighlights();
+    });
   });
 
-  // This is probably too much styling, but we could highlight the
-  // elements and change the link colours here too.
-  //
-  // We can choose only to change the colour of the active link, similar
-  // to the normal browser behavior this way too - quite nice.
   container.addEventListener('mouseenter', (evt) => {
-    container.style.borderColor = 'orange';
-    aTag.style.color = 'orange';
+    applyHighlights();
   });
 
   container.addEventListener('mouseleave', (evt) => {
-    container.style.borderColor = prevBorderColor;
-    aTag.style.color = prevLinkColor;
+    removeHighlights();
   });
 });
